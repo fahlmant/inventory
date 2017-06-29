@@ -1,0 +1,23 @@
+Begin work on performing an inventory of hosts in the CoreOS Lab.  This should include the following basic information:
+host name
+asset number
+ip address
+all mac addresses of adapters
+ipmi mac address
+ipmi user name
+ipmi password
+disk information
+cpu information
+ram information
+
+# dmidecode | egrep -i 'serial|product' #Asset number
+#
+To get each one run:
+$ hostname -f #Get hostname
+$ dmidecode --type system | egrep -i 'System Information' -A 10 | grep Serial #Get asset number
+$ ifconfig -a (for now) #ip address and mac adress
+$ ipmitool ??? #ipmi things
+$ lsblk ??? #disk info
+$ lscpu #cpu information
+$ dmidecode --type memory #Get ram info
+
