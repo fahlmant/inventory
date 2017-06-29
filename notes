@@ -21,3 +21,15 @@ $ lsblk ??? #disk info
 $ lscpu #cpu information
 $ dmidecode --type memory #Get ram info
 
+Steps to get information:
+1) Start reciever.py on host to receive data (laptop or equivalent), note IP and put in ignition file
+2) Boot target machine, use pxe to run inventory ignition file
+3) Ignition file will run inventory.sh, and ncat it to the reciever
+4) reciever will parse and store the data
+
+TODO:
+Write and test ignition files
+Finalize all commands
+Come up with (or use an already established) format for sending data and/or storing data
+Implement reciever-side conversion to that format
+
