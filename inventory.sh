@@ -10,9 +10,10 @@ sudo dmidecode --type system | egrep -i 'System Information' -A 10 | grep Serial
 #3) IP Address
 
 #4) Get each device and mac adress
+printf "Mac Addresses:\n"
 for f in /sys/class/net/*; do
-  echo  "$f"
-  cat $f/address
+  printf "\t$f"
+  printf "\t%s"$(cat $f/address)
 done
 
 #5) IPMI Mac Addr
@@ -22,7 +23,8 @@ done
 #8) Disk Info
 
 #9) CPU Info
-lscpu
+printf "CPU Info:\n"
+lscpu | awk '/Arch|mode|Order|CPU(s)|Model name|CPU MHz/'
 
 #10) Ram Info
 
