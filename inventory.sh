@@ -24,21 +24,12 @@ cat ip_addr_show | awk '/eth0/ {print $4}'
 #4) Mac Address via Mayday for eth0
 cat ip_link_show | awk '/eth0/ {print $17}'
 
-#5) IPMI Mac Addr
-
-
-#6) IPMI User
-
-
-#7) IPMI Password
-
-
-#8) Disk Info
+#5) Disk Info
 df -h
 
-#9) CPU Info
+#6) CPU Info
 lscpu | awk '/Arch|mode|Order|CPU(s)|Model name|CPU MHz/'
 
-#10) Ram Info via Mayday
+#7) Ram Info via Mayday
 cat free
 printf "\n"
