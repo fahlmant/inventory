@@ -5,7 +5,7 @@ HOSTNAME=$(hostname -f)
 printf "#^Hostname: $HOSTNAME"
 
 #2) Get Serial number for system
-sudo dmidecode --type system | egrep -i 'System Information' -A 10 | grep Serial | sed -e 's/^[[:space:]]*//g' | awk '{print "#^" $0}'
+dmidecode --type system | egrep -i 'System Information' -A 10 | grep Serial | sed -e 's/^[[:space:]]*//g' | awk '{print "#^" $0}'
 
 #3) IP Address
 printf "#^IP Adresses:\n"
