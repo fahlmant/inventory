@@ -21,7 +21,7 @@ df -h
 
 #9) CPU Info
 printf "#^CPU Info:\n"
-lscpu | awk '/Arch|mode|Order|CPU(s)|Model name|CPU MHz/'
+cat /proc/cpuinfo | grep -i 'model name' -m 1
 
 #10) Ram Info
 printf "#^Memory Info:\n"
