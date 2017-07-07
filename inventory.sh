@@ -1,7 +1,6 @@
 #!/bin/bash
 
 #1) Get Hostname
-HOSTNAME=$(hostname -f)
 printf "#^Hostname: $HOSTNAME\n"
 
 #2) Get Serial number for system
