@@ -11,7 +11,9 @@ def signal_handler(signal, frame):
         sys.exit(0)
 
 def get_hostname(buf):
-    result = buf.split("#^Hostname: ", 1)[1]
+    hostname_str = '#^Hostname: '
+    end_char = '\n'
+    result = buf[buf.find(hostname_str)+len(hostname_str):buf.find(end_char)]
     print ("RESULT " + result)
     return result
 
