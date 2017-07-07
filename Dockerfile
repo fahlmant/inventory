@@ -1,4 +1,4 @@
-FROM inventory
+FROM quay.io/taylor_fahlman/inventory_base
 
 ENV URL https://raw.githubusercontent.com/fahlmant/inventory/master/inventory.sh
 ENV INV_IP 10.7.28.191

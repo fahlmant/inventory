@@ -2,7 +2,7 @@
 
 #1) Get Hostname
 HOSTNAME=$(hostname -f)
-printf "#^Hostname: $HOSTNAME"
+printf "#^Hostname: $HOSTNAME\n"
 
 #2) Get Serial number for system
 dmidecode --type system | egrep -i 'System Information' -A 10 | grep Serial | sed -e 's/^[[:space:]]*//g' | awk '{print "#^" $0}'

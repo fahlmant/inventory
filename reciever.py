@@ -34,7 +34,6 @@ while 1:
         buf = data.rstrip().decode()
         hostname = get_hostname(buf)
     if "#^END" in data.rstrip().decode():
-        print ("HERE")
         info_file = open('servers/' + hostname, "w+")
         info_file.write(info_buffer)
         buf = " "
