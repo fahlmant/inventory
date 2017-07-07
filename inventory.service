@@ -1,0 +1,12 @@
+[Unit]
+Description=Inventory Service
+After=docker.service
+Requires=docker.service
+
+[Service]
+TimeoutStartSec=0
+ExecStartPre=/usr/bin/docker pull quay.io/taylor_fahlman/inventory
+ExecStart=/usr/bin/docker run  --rm -d --privileged inventory
+
+[Install]
+WantedBy=multi-user.target
