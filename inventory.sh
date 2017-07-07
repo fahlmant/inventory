@@ -13,7 +13,7 @@ ip -o addr show  | awk '{print $2 " " $3 " " $4}'
 
 #4) Get Mac Address
 printf "#^MAC Adresses:\n"
-ip -o link show | awk '/eth0/ {print $2 " " $17}'
+ip -o link show | awk '/eth0/ {print $2 " " $10}'
 
 #8) Disk Info
 printf "#^Disk Info:\n"
@@ -26,7 +26,6 @@ cat /proc/cpuinfo | grep -i 'model name' -m 1
 #10) Ram Info
 printf "#^Memory Info:\n"
 free -m
-free -mh
 
 printf "#^END"
 printf "\n"
