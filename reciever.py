@@ -14,7 +14,6 @@ def get_hostname(buf):
     hostname_str = '#^Hostname: '
     end_char = '\n'
     result = buf[buf.find(hostname_str)+len(hostname_str):buf.find(end_char)]
-    print ("RESULT " + result)
     return result
 
 #Set up socket bindings and signal listener
