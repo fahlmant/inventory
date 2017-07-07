@@ -1,3 +1,10 @@
 {
-
+  "ignition": { "version": "2.1.0" },
+  "systemd": {
+    "units": [{
+      "name": "inventory.service",
+      "enabled": true,
+      "contents": "[Unit]\nDescription=Inventory Service\nAfter=docker.service\nRequires=docker.service\n\n[Service]\nTimeoutStartSec=0\nExecStartPre=/usr/bin/docker pull quay.io/taylor_fahlman/inventory\nExecStart=/usr/bin/docker run  --rm -d --privileged inventory\n\n[Install]\nWantedBy=multi-user.target"
+    }]
+  }
 }
