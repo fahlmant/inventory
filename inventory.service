@@ -5,9 +5,10 @@ Requires=docker.service
 
 [Service]
 TimeoutStartSec=0
-ExecStartPre=HOSTNAME=`hostname -f`
 ExecStartPre=/usr/bin/docker pull quay.io/taylor_fahlman/inventory
-ExecStart=/usr/bin/docker run  --rm -e HOSTNAME=$HOSTNAME --net=host --privileged quay.io/taylor_fahlman/inventory
+ExecStart=/usr/bin/docker run  --rm --net=host --privileged quay.io/taylor_fahlman/inventory
+#ExecStop=/usr/bin/docker ps -a | awk '/taylor_fahlman/ {print $1}' | xargs -I % /bin/bash -c 'docker stop; docker rm'
+
 
 [Install]
 WantedBy=multi-user.target
