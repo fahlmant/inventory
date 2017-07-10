@@ -8,11 +8,11 @@ dmidecode --type system | egrep -i 'System Information' -A 10 | grep Serial | se
 
 #3) IP Address
 printf "#^IP Adresses:\n"
-ip -o addr show  | awk '{print $2 " " $3 " " $4}'
+ip -o addr show  | awk '{prnt $2 " " $3 " " $4}'
 
 #4) Get Mac Address
 printf "#^MAC Adresses:\n"
-ip -o link show | awk '/eth0/ {print $2 " " $10}'
+ip -o link show | awk '!/lo:/'
 
 #8) Disk Info
 printf "#^Disk Info:\n"
