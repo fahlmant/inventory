@@ -5,8 +5,9 @@ Requires=docker.service
 
 [Service]
 TimeoutStartSec=0
+ExecStartPre=HOSTNAME=`hostname -f`
 ExecStartPre=/usr/bin/docker pull quay.io/taylor_fahlman/inventory
-ExecStart=/usr/bin/docker run  --rm -d -e HOSTNAME=`hostname -f` --privileged quay.io/taylor_fahlman/inventory
+ExecStart=/usr/bin/docker run  --rm -e HOSTNAME=$HOSTNAME --net=host --privileged quay.io/taylor_fahlman/inventory
 
 [Install]
 WantedBy=multi-user.target
