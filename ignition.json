@@ -4,7 +4,7 @@
     "units": [{
       "name": "inventory.service",
       "enabled": true,
-      "contents": "[Unit]\nDescription=Inventory Service\nAfter=docker.service\nRequires=docker.service\n\n[Service]\nTimeoutStartSec=0\nExecStartPre=HOSTNAME=`hostname -f`\nExecStartPre=/usr/bin/docker pull quay.io/taylor_fahlman/inventory\nExecStart=/usr/bin/docker run  --rm --privileged --net=host quay.io/taylor_fahlman/inventory\n\n[Install]\nWantedBy=multi-user.target"
+      "contents": "[Unit]\nDescription=Inventory Service\nAfter=docker.service\nRequires=docker.service\n\n[Service]\nTimeoutStartSec=0\nExecStartPre=/usr/bin/docker pull quay.io/taylor_fahlman/inventory\nExecStart=/usr/bin/docker run  --rm --privileged --net=host quay.io/taylor_fahlman/inventory\n\n[Install]\nWantedBy=multi-user.target"
     }]
   }
 }
